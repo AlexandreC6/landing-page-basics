@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;900&display=swap");
 
 *,
 ::before,
@@ -86,7 +86,7 @@ h1 {
 }
 
 .subtitle {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   color: #f1f1f1;
   font-weight: 200;
   font-size: clamp(16px, 2vw, 20px);
@@ -101,7 +101,7 @@ h1 {
   width: 60px;
   height: 60px;
   border: 3px solid #f1f1f1;
-  border-radius: 50% ;
+  border-radius: 50%;
   background: #f0f0f0;
   position: absolute;
   bottom: clamp(30px, 7.5vw, 75px);
@@ -160,7 +160,7 @@ section h2 span {
   width: 50%;
 }
 .text-discover-content h3 {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: clamp(16px, 3vw, 30px);
   font-weight: 400;
   margin-bottom: 30px;
@@ -219,6 +219,73 @@ section h2 span {
   }
 }
 
-img {
-  width: 20px;
+.side-apparition-container {
+  display: flex;
+  max-height: 200px;
+  margin: 100px 0;
+}
+.side-slide-content {
+  padding: 0 20px;
+  width: 50%;
+}
+.side-slide-content h3 {
+  font-family: Raleway;
+  font-weight: 300;
+}
+.side-slide-content p {
+  margin-top: 20px;
+  color: gray;
+  line-height: 1.2;
+}
+.side-apparition-container img {
+  width: 50%;
+  object-fit: cover;
+  object-position: 0 70%;
+}
+
+/* Animation */
+
+.side-apparition-container {
+  /* skew = distorsion */
+  transform: translateX(30px) skew(20deg);
+  opacity: 0;
+  transition: transform 0.4s ease-out opacity 0.4s ease-out;
+}
+
+.side-apparition-container:nth-child(odd) {
+  transform: translateX(-30px) skew(-20deg);
+}
+
+.side-apparition-container.active {
+  transform: translateX(0px) skew(0deg);
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .side-apparition-container{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .side-slide-content, .side-apparition-container img {
+    width: 100%;
+  }
+
+  .side-apparition-container{
+    max-height: fit-content;
+    margin: 50px auto;
+  }
+
+  .side-slide-content {
+    margin-bottom: 30px;
+    padding: 0;
+  }
+
+  .side-apparition-container:nth-child(even) img {
+    order: 2;
+  }
+  .side-apparition-container:nth-child(even) .side-slide-content {
+    order: 1;
+  }
+
 }
