@@ -261,6 +261,34 @@ section h2 span {
   object-fit: cover;
 }
 
+/* Animation */
+
+h2,
+.section-subtitle,
+.text-discover-content > *,
+.discover-main-img {
+  opacity: 0;
+  transform: translateY(-5px);
+  transition:
+  opacity 0.5s ease-out,
+  transform 0.5s ease-out;
+}
+
+h2.active,
+.section-subtitle.active,
+.text-discover-content > *.active,
+.discover-main-img.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 1100px) {
+  .main-container {
+    border-right: 0;
+    border-left: 0;
+  }
+}
+
 @media (max-width: 800px) {
   .discover-content {
     /* background-color: yellow; */
